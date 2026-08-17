@@ -26,22 +26,16 @@
             #region Part 2
 
 
-            Driver driver = new Driver();
+            
+                Driver driver = new Driver();
                 driver.DriverId = 1;
                 driver.FullName = "Ahmed Mohamed";
                 driver.PhoneNumber = "01012345678";
 
-
-               
                 DeliveryCenter center = new DeliveryCenter();
                 center.CenterName = "Smart Delivery Center";
-
-
-              
                 center.Driver = driver;
 
-
-                
                 DeliveryAddress address1 =
                     new DeliveryAddress("Cairo", "Nasr City", 10);
 
@@ -51,8 +45,6 @@
                 DeliveryAddress address3 =
                     new DeliveryAddress("Alexandria", "Stanley", 30);
 
-
-          
                 StandardShipment standard = new StandardShipment(
                     "S001",
                     "Laptop",
@@ -61,8 +53,6 @@
                     address1
                 );
 
-
-              
                 ExpressShipment express = new ExpressShipment(
                     "S002",
                     "Mobile Phone",
@@ -72,8 +62,6 @@
                     30m
                 );
 
-
-                
                 InternationalShipmrnt international =
                     new InternationalShipmrnt(
                         "S003",
@@ -85,75 +73,70 @@
                         "Germany"
                     );
 
-
                 center.AddShipment(standard);
                 center.AddShipment(express);
                 center.AddShipment(international);
 
-
-               
                 Console.WriteLine("Delivery Center");
                 Console.WriteLine("==========================");
-
-                Console.WriteLine($"Center : {center.CenterName}");
+              
                 Console.WriteLine("==========================");
 
                 center.PrintAllShipments();
 
-
-                Console.WriteLine();
-                Console.WriteLine("Printing using polymorphism...");
-                Console.WriteLine("==========================");
-
-                DeliveryHelper.PrintShipmentDetails(standard);
-
-                Console.WriteLine();
-
-                DeliveryHelper.PrintShipmentDetails(express);
-
-                Console.WriteLine();
-
-                DeliveryHelper.PrintShipmentDetails(international);
-
-
-                
                 Console.WriteLine();
                 Console.WriteLine("==========================");
-                Console.WriteLine("Tracking weights...");
+                Console.WriteLine("Tracking Status");
+                Console.WriteLine("==========================");
 
-                Console.WriteLine($"Original weight : {standard.Weight} kg");
+                center.PrintTrackingStatuses();
 
-                
-                standard.UpdateWeight(5m);
-
-                Console.WriteLine($"Updated weight : {standard.Weight} kg");
-
-                standard.UpdateWeight(5m, 0.5m);
-
-                Console.WriteLine(
-                    $"Updated weight after packing : {standard.Weight} kg"
-                );
-
-
-               
                 Console.WriteLine();
                 Console.WriteLine("==========================");
-                Console.WriteLine("Tracking using Shipment[]...");
+                Console.WriteLine("Insurance");
+                Console.WriteLine("==========================");
 
-                Shipment[] shipments =
+                center.PrintInsuranceCosts();
+
+                Console.WriteLine();
+                Console.WriteLine("==========================");
+                Console.WriteLine("ITrackable Array");
+                Console.WriteLine("==========================");
+
+                ITrackable[] trackables =
                 {
                 standard,
                 express,
                 international
             };
 
-                foreach (Shipment shipment in shipments)
+                foreach (ITrackable t in trackables)
                 {
-                    shipment.PrintShipment();
-                    Console.WriteLine("--------------------------");
+                    Console.WriteLine(t.GetTrackingStatus());
                 }
-            }
-            #endregion
+
+                Console.WriteLine();
+                Console.WriteLine("==========================");
+                Console.WriteLine("IInsurable Array");
+                Console.WriteLine("==========================");
+
+                IInsurable[] insurables =
+                {
+                standard,
+                express,
+                international
+            };
+
+                foreach (IInsurable i in insurables)
+                {
+                    Console.WriteLine(i.CalculateInsurance());
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("==========================");
+                Console.WriteLine("Interface Polymorphism Demonstrated Successfully.");
+            #endregion 
         }
+    }
     }
 

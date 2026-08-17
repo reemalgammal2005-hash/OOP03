@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OOP03
 {
-    internal class ExpressShipment:Shipment 
+    internal class ExpressShipment:Shipment , ITrackable , IInsurable 
     {
         private decimal extraFee;
         public ExpressShipment(
@@ -42,8 +42,19 @@ namespace OOP03
         }
         public override void PrintShipment()
         {
-            base.PrintShipment();
-            Console.WriteLine($"Extra Fee : {ExtraFee}");
+            Console.WriteLine("Express Shipment");
+            Console.WriteLine();
+            Console.WriteLine($"Tracking Code : {TrackingCode}");
+            Console.WriteLine($"Extra Fee : {ExtraFee} EGP");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+        }
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} is Out for Delivery.";
+        }
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.08m;
         }
     }
 }

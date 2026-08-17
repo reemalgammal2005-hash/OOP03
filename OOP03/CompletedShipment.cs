@@ -10,5 +10,12 @@ namespace OOP03
         : base(trackingCode)
         {
         }
+
+        public override decimal EstimatedCost => throw new NotImplementedException();
+
+        public override void PrintShipment()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

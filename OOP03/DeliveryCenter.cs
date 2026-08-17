@@ -110,5 +110,26 @@ namespace OOP03
             }
         }
         public Driver Driver { get; set; }
+        public void PrintTrackingStatuses()
+        {
+            foreach (ITrackable t in shipments)
+            {
+                if (t != null)
+                {
+                    Console.WriteLine(t.GetTrackingStatus());
+                }
+            }
+        }
+        public void PrintInsuranceCosts()
+        {
+            
+                    Console.WriteLine($"Standard Shipment Insurance : {((IInsurable)shipments[0]).CalculateInsurance():F2} EGP");
+                    Console.WriteLine();
+                    Console.WriteLine($"Express Shipment Insurance : {((IInsurable)shipments[1]).CalculateInsurance():F2} EGP");
+                    Console.WriteLine();
+                    Console.WriteLine($"International Shipment Insurance : {((IInsurable)shipments[2]).CalculateInsurance():F2} EGP");
+                
+            
+        }
     }
 }

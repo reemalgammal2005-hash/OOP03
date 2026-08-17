@@ -5,27 +5,28 @@
         static void Main(string[] args)
         {
             #region Part 01 — Theoretical Questions
-            #region Q 1
-            /* A- method override (use key word (override - virtual) , loak at object)
-             * method overloading ( use key word new , loak at refrance)
-             * 
-             * B- static ( early , overloading , comile time ,refrance type , fast)
-             * dynamic ( late , override , run time , object , slower )
-             */
+            #region Q1 Abstraction
+
+            //A) Abstraction is the process of hiding implementation details and showing only the essential features of an object
+            //B)Because it reduces complexity, improves maintainability, enhances security, and promotes flexibility & reusability
             #endregion
 
-            #region Q 2
-            /* A- sealed class cannot be inherited from
-             * B-sealed class prevents inheritance, while a sealed method prevents further overriding
-             * C-No, because a sealed method cannot be overridden again
+            #region Q2 Abstract Classes vs. Interfaces
+            /* a) Abstract Class can contain both abstract methods and concrete methods
+             * Interface mainly defines a contract that classes must implement, and a class can implement multiple interface
+             */
+            // b)When I want to define a common behavior for unrelated classes, achieve loose coupling, or support multiple inheritance of type
+            /* c) No=> a class can inherit from only one abstract class
+             * Yes => a class can implement multiple interfaces
+             * 
              */
             #endregion
             #endregion
 
             #region Part 2
-            
-                
-                Driver driver = new Driver();
+
+
+            Driver driver = new Driver();
                 driver.DriverId = 1;
                 driver.FullName = "Ahmed Mohamed";
                 driver.PhoneNumber = "01012345678";

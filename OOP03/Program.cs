@@ -1,26 +1,47 @@
-﻿namespace OOP03
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace OOP03
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             #region Part 01 — Theoretical Questions
-            #region Q1 Abstraction
+            #region Q1  Object Copying
 
-            //A) Abstraction is the process of hiding implementation details and showing only the essential features of an object
-            //B)Because it reduces complexity, improves maintainability, enhances security, and promotes flexibility & reusability
+            // a ) Both variables refer to the same object
+            // b ) No. It only copies the reference
+            // c )Reference copy: same object
+            // Object copy: creates a new object
             #endregion
 
-            #region Q2 Abstract Classes vs. Interfaces
-            /* a) Abstract Class can contain both abstract methods and concrete methods
-             * Interface mainly defines a contract that classes must implement, and a class can implement multiple interface
-             */
-            // b)When I want to define a common behavior for unrelated classes, achieve loose coupling, or support multiple inheritance of type
-            /* c) No=> a class can inherit from only one abstract class
-             * Yes => a class can implement multiple interfaces
-             * 
-             */
+            #region Q2  Shallow Copy vs Deep Copy 
+            // a ) Creates a new object, but reference-type members still point to the same objects
+            // b ) Creates a new object with new copies of its reference-type members
+            // c ) They share the same references
+            // d ) They get new independent objects 
+            // e ) When changing the copy must not affect the original
             #endregion
+            #region Static Members
+            // A ) field shared by all objects of the class
+            // B ) A method belonging to the class, not an object ---- No, it cannot directly access instance members
+            // C ) It initializes static members and runs automatically once
+            // D ) A class that contains only static members ---- No, you cannot create an object from it
+            #endregion
+            #region Extension Methods 
+            // a ) method that adds functionality to an existing class without modifying it
+            // b ) The keyword this
+            // c ) Inside a static class
+            // d ) No, it can only access accessible members
+            #endregion
+            #region Partial Classes and Partial Methods
+            // a ) class that is split into multiple files
+            // b ) To organize the code and make it easier to manage
+            // c ) A method whose declaration and implementation can be in different parts of the same partial class
+            // d ) It is removed by the compiler and causes no error
+
+            #endregion
+
             #endregion
 
             #region Part 2
